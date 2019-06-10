@@ -42,14 +42,14 @@ router.patch('/edit/:id', (req, res) => {
         res.status(400).send(err);
       });
     }
-  })
+  });
 });
 
 router.delete('/delete/:id', (req, res) => {
   Book.findByIdAndRemove(req.params.id).then(book => {
     res.json(book);
   }).catch(err => {
-    res.status(400).send();
+    res.status(400).send(err);
   });
 });
 
